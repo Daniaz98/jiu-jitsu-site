@@ -30,7 +30,7 @@ defineProps<{
 }
 
 .social-link {
-  color: #ffffff;
+  color: #000000;
   font-size: 1.5rem;
   transition: all 0.3s ease;
   text-decoration: none;
@@ -40,6 +40,11 @@ defineProps<{
   width: 40px;
   height: 40px;
   border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.dark .social-link {
+  color: #ffffff;
   background-color: rgba(255, 255, 255, 0.1);
 }
 

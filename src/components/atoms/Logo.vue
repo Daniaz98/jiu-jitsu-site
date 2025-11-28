@@ -1,7 +1,7 @@
 <template>
   <div class="logo">
     <slot>
-      <span class="logo-text">BJJ</span>
+      <span class="logo-text">JIU JITSU</span>
     </slot>
   </div>
 </template>

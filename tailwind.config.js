@@ -4,8 +4,13 @@ export default {
     "./index.html",
     "./src/**/*.{vue,js,ts,jsx,tsx}",
   ],
+  darkMode: 'class',
   theme: {
     extend: {
+      fontFamily: {
+        mono: ['IBM Plex Mono', 'monospace'],
+        sans: ['IBM Plex Mono', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'sans-serif'],
+      },
       colors: {
         primary: {
           DEFAULT: '#d32f2f',

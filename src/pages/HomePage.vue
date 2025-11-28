@@ -2,7 +2,7 @@
   <div class="home-page">
     <Header />
     <HeroSection
-      title="Jiu Jitsu Brasileiro"
+      title="Brazilian Jiu Jitsu"
       subtitle="Desenvolva sua técnica, força e disciplina. Junte-se à nossa comunidade de praticantes dedicados."
       cta-text="Comece Agora"
       secondary-text="Saiba Mais"
@@ -10,7 +10,7 @@
       @secondary-click="handleSecondaryClick"
     />
     <Footer
-      description="Academia de Jiu Jitsu dedicada ao desenvolvimento técnico e pessoal de nossos alunos."
+      description="Site dedicado ao Jiu Jitsu, conheça a história, busque sobre competições e encontre a academia mais próxima."
       site-name="BJJ Academy"
       :quick-links="quickLinks"
       :contact-info="contactInfo"
@@ -20,13 +20,12 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
 import Header from '../components/organisms/Header.vue'
 import HeroSection from '../components/organisms/HeroSection.vue'
 import Footer from '../components/organisms/Footer.vue'
 
 const quickLinks = [
-  { href: '#sobre', label: 'Sobre Nós' },
+  { href: '#historia', label: 'História' },
   { href: '#aulas', label: 'Aulas' },
   { href: '#horarios', label: 'Horários' },
   { href: '#faq', label: 'FAQ' }

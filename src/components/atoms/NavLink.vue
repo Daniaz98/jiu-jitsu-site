@@ -13,13 +13,17 @@ defineProps<{
 
 <style scoped>
 .nav-link {
-  color: #ffffff;
+  color: #000000;
   text-decoration: none;
   font-weight: 500;
   padding: 0.5rem 1rem;
   border-radius: 4px;
   transition: all 0.3s ease;
   position: relative;
+}
+
+.dark .nav-link {
+  color: #ffffff;
 }
 
 .nav-link:hover {

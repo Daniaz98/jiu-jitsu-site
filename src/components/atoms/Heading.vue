@@ -19,6 +19,11 @@ const tag = computed(() => `h${props.level || 1}`)
   margin: 0;
   font-weight: 700;
   line-height: 1.2;
+  color: #000000;
+  transition: color 0.3s ease;
+}
+
+.dark .heading {
   color: #ffffff;
 }
 

@@ -1,5 +1,8 @@
 <script setup lang="ts">
+import { useTheme } from './hooks/useTheme'
 import HomePage from './pages/HomePage.vue'
+
+useTheme()
 </script>
 
 <template>
@@ -16,9 +19,15 @@ import HomePage from './pages/HomePage.vue'
 body {
   margin: 0;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  background-color: #ffffff;
+  color: #000000;
+  overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark {
   background-color: #1a1a1a;
   color: #ffffff;
-  overflow-x: hidden;
 }
 
 #app {

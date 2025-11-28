@@ -68,10 +68,15 @@ const currentYear = computed(() => new Date().getFullYear())
 
 <style scoped>
 .footer {
-  background-color: #1a1a1a;
+  background-color: #f5f5f5;
   border-top: 1px solid rgba(211, 47, 47, 0.2);
   padding: 3rem 0 1rem;
   margin-top: 4rem;
+  transition: background-color 0.3s ease;
+}
+
+.dark .footer {
+  background-color: #1a1a1a;
 }
 
 .footer__container {
@@ -105,9 +110,13 @@ const currentYear = computed(() => new Date().getFullYear())
 }
 
 .footer__link {
-  color: #b0b0b0;
+  color: #616161;
   text-decoration: none;
   transition: color 0.3s ease;
+}
+
+.dark .footer__link {
+  color: #b0b0b0;
 }
 
 .footer__link:hover {
@@ -122,8 +131,13 @@ const currentYear = computed(() => new Date().getFullYear())
   max-width: 1200px;
   margin: 2rem auto 0;
   padding: 1.5rem 2rem 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
   text-align: center;
+  transition: border-color 0.3s ease;
+}
+
+.dark .footer__bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 @media (max-width: 768px) {

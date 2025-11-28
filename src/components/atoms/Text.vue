@@ -30,10 +30,20 @@ defineProps<{
 }
 
 .text--primary {
+  color: #000000;
+  transition: color 0.3s ease;
+}
+
+.dark .text--primary {
   color: #ffffff;
 }
 
 .text--secondary {
+  color: #616161;
+  transition: color 0.3s ease;
+}
+
+.dark .text--secondary {
   color: #b0b0b0;
 }
 

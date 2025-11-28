@@ -5,7 +5,7 @@
       <Heading :level="1" class="hero__title">
         {{ title }}
       </Heading>
-      <Text size="large" color="white" class="hero__subtitle">
+      <Text size="large" color="primary" class="hero__subtitle">
         {{ subtitle }}
       </Text>
       <div class="hero__actions">
@@ -45,11 +45,19 @@ defineEmits<{
   display: flex;
   align-items: center;
   justify-content: center;
+  background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);
+  background-image: 
+    radial-gradient(circle at 20% 50%, rgba(234, 215, 215, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(211, 47, 47, 0.05) 0%, transparent 50%);
+  overflow: hidden;
+  transition: background 0.3s ease;
+}
+
+.dark .hero {
   background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
   background-image: 
     radial-gradient(circle at 20% 50%, rgba(211, 47, 47, 0.1) 0%, transparent 50%),
     radial-gradient(circle at 80% 80%, rgba(211, 47, 47, 0.1) 0%, transparent 50%);
-  overflow: hidden;
 }
 
 .hero__overlay {
@@ -58,6 +66,15 @@ defineEmits<{
   left: 0;
   right: 0;
   bottom: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0.2) 100%
+  );
+  transition: background 0.3s ease;
+}
+
+.dark .hero__overlay {
   background: linear-gradient(
     to bottom,
     rgba(0, 0, 0, 0.4) 0%,
@@ -76,12 +93,25 @@ defineEmits<{
 
 .hero__title {
   margin-bottom: 1.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  transition: text-shadow 0.3s ease;
+}
+
+.dark .hero__title {
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .hero__subtitle {
   margin-bottom: 2.5rem;
   font-size: 1.25rem;
+}
+
+.hero__subtitle .text--primary {
+  color: #424242;
+}
+
+.dark .hero__subtitle .text--primary {
+  color: #ffffff;
 }
 
 .hero__actions {
