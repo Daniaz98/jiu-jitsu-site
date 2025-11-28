@@ -25,10 +25,10 @@ import HeroSection from '../components/organisms/HeroSection.vue'
 import Footer from '../components/organisms/Footer.vue'
 
 const quickLinks = [
-  { href: '#historia', label: 'História' },
-  { href: '#aulas', label: 'Aulas' },
-  { href: '#horarios', label: 'Horários' },
-  { href: '#faq', label: 'FAQ' }
+  { href: '/historia', label: 'História' },
+  { href: '/aulas', label: 'Aulas' },
+  { href: '/horarios', label: 'Horários' },
+  { href: '/faq', label: 'FAQ' }
 ]
 
 const contactInfo = {

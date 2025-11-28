@@ -11,17 +11,21 @@
 </template>
 
 <script setup lang="ts">
+import { computed } from 'vue'
+import { useRoute } from 'vue-router'
 import Logo from '../atoms/Logo.vue'
 import Navigation from '../molecules/Navigation.vue'
 import ThemeToggle from '../atoms/ThemeToggle.vue'
 
-const navLinks = [
-  { href: '#', label: 'Início', active: true },
-  { href: '#historia', label: 'História' },
-  { href: '#federacoes', label: 'Federações' },
-  { href: '#competicoes', label: 'Competições' },
-  { href: '#contato', label: 'Encontre uma Academia' }
-]
+const route = useRoute()
+
+const navLinks = computed(() => [
+  { href: '/', label: 'Início' },
+  { href: '/historia', label: 'História' },
+  { href: '/federacoes', label: 'Federações' },
+  { href: '/competicoes', label: 'Competições' },
+  { href: '/contato', label: 'Encontre uma Academia' }
+])
 </script>
 
 <style scoped>

@@ -1,14 +1,31 @@
 <template>
-  <a :href="href" :class="['nav-link', { 'nav-link--active': active }]">
+  <RouterLink :to="href" :class="['nav-link', { 'nav-link--active': isActive }]">
     <slot></slot>
-  </a>
+  </RouterLink>
 </template>
 
 <script setup lang="ts">
-defineProps<{
+import { computed } from 'vue'
+import { useRoute } from 'vue-router'
+
+const props = defineProps<{
   href: string
   active?: boolean
 }>()
+
+const route = useRoute()
+
+const isActive = computed(() => {
+  if (props.active !== undefined) {
+    return props.active
+  }
+  // Para a rota home (/), verifica se está exatamente no path
+  if (props.href === '/') {
+    return route.path === '/'
+  }
+  // Para outras rotas, verifica se o path começa com o href
+  return route.path.startsWith(props.href)
+})
 </script>
 
 <style scoped>

@@ -20,19 +20,19 @@
       <div class="footer__section">
         <Heading :level="4" class="footer__title">Contato</Heading>
         <Text size="small" color="secondary" class="footer__contact">
-          {{ contactInfo.address }}
+          {{ contactInfo?.address }}
         </Text>
         <Text size="small" color="secondary" class="footer__contact">
-          {{ contactInfo.phone }}
+          {{ contactInfo?.phone }}
         </Text>
         <Text size="small" color="secondary" class="footer__contact">
-          {{ contactInfo.email }}
+          {{ contactInfo?.email }}
         </Text>
       </div>
       
       <div class="footer__section">
         <Heading :level="4" class="footer__title">Redes Sociais</Heading>
-        <SocialLinks :links="socialLinks" />
+        <SocialLinks :links="socialLinks ?? []" />
       </div>
     </div>
     
@@ -70,8 +70,8 @@ const currentYear = computed(() => new Date().getFullYear())
 .footer {
   background-color: #f5f5f5;
   border-top: 1px solid rgba(211, 47, 47, 0.2);
-  padding: 3rem 0 1rem;
-  margin-top: 4rem;
+  padding: 2rem 0 1rem;
+  margin-top: 0rem;
   transition: background-color 0.3s ease;
 }
 
@@ -82,10 +82,10 @@ const currentYear = computed(() => new Date().getFullYear())
 .footer__container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 2 1rem;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
+  gap: 3rem;
 }
 
 .footer__section {

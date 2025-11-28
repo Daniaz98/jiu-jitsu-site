@@ -1,12 +1,11 @@
 <script setup lang="ts">
 import { useTheme } from './hooks/useTheme'
-import HomePage from './pages/HomePage.vue'
 
 useTheme()
 </script>
 
 <template>
-  <HomePage />
+  <RouterView />
 </template>
 
 <style>
