@@ -1,5 +1,8 @@
 <template>
-  <header class="header">
+  <header 
+    class="header"
+    :class="showHeader ? 'translate-y-0' : '-translate-y-full'"
+  >
     <div class="header__container">
       <Logo />
       <div class="header__right">
@@ -11,10 +14,14 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, ref, onMounted, onUnmounted } from 'vue'
 import Logo from '../atoms/Logo.vue'
 import Navigation from '../molecules/Navigation.vue'
 import ThemeToggle from '../atoms/ThemeToggle.vue'
+
+const showHeader = ref(true)
+let lastScrollY = window.scrollY
+let ticking = false
 
 const navLinks = computed(() => [
   { href: '/', label: 'Início' },
@@ -23,6 +30,36 @@ const navLinks = computed(() => [
   { href: '/competicoes', label: 'Competições' },
   { href: '/contato', label: 'Encontre uma Academia' }
 ])
+
+function handleScroll() {
+  const currentScrollY = window.scrollY
+
+  if (currentScrollY > lastScrollY && currentScrollY > 80) {
+    showHeader.value = false
+  } else {
+    showHeader.value = true
+  }
+
+  lastScrollY = currentScrollY
+}
+
+function onScroll() {
+  if (!ticking) {
+    window.requestAnimationFrame(() => {
+      handleScroll()
+      ticking = false
+    })
+    ticking = true
+  }
+}
+
+onMounted(() => {
+  window.addEventListener('scroll', onScroll, { passive: true })
+})
+
+onUnmounted(() => {
+  window.removeEventListener('scroll', onScroll)
+})
 </script>
 
 <style scoped>
@@ -36,7 +73,12 @@ const navLinks = computed(() => [
   z-index: 1000;
   padding: 1rem 0;
   border-bottom: 1px solid rgba(211, 47, 47, 0.2);
-  transition: background-color 0.3s ease;
+  transition: transform 0.3s ease-in-out, background-color 0.3s ease;
+  transform: translateY(0);
+}
+
+.header.-translate-y-full {
+  transform: translateY(-100%);
 }
 
 .dark .header {
