@@ -19,11 +19,9 @@ const isActive = computed(() => {
   if (props.active !== undefined) {
     return props.active
   }
-  // Para a rota home (/), verifica se está exatamente no path
   if (props.href === '/') {
     return route.path === '/'
   }
-  // Para outras rotas, verifica se o path começa com o href
   return route.path.startsWith(props.href)
 })
 </script>

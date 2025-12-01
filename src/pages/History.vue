@@ -239,7 +239,7 @@ const socialLinks = [
 
 .history-page__main {
   flex: 1;
-  padding-top: 80px; /* Espaço para o header fixo */
+  padding-top: 80px;
   padding-bottom: 2rem;
 }
 
@@ -271,7 +271,6 @@ const socialLinks = [
   margin-top: 1rem;
 }
 
-/* Seção de Conteúdo */
 .history-content {
   display: flex;
   flex-direction: column;

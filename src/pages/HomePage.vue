@@ -45,12 +45,10 @@ const socialLinks = [
 
 const handleCtaClick = () => {
   console.log('CTA clicked')
-  // Implementar navegação ou ação
 }
 
 const handleSecondaryClick = () => {
   console.log('Secondary clicked')
-  // Implementar navegação ou ação
 }
 </script>
 

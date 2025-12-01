@@ -4,7 +4,6 @@ type Theme = 'light' | 'dark'
 
 const theme = ref<Theme>('dark')
 
-// Inicializa o tema imediatamente (antes do mount)
 const initializeTheme = () => {
   const savedTheme = localStorage.getItem('theme') as Theme | null
   
@@ -42,7 +41,6 @@ export function useTheme() {
     setTheme(theme.value === 'dark' ? 'light' : 'dark')
   }
 
-  // Inicializa o tema se ainda não foi inicializado
   if (typeof document !== 'undefined' && !localStorage.getItem('theme')) {
     initializeTheme()
   } else if (typeof document !== 'undefined') {
@@ -60,7 +58,6 @@ export function useTheme() {
   }
 }
 
-// Inicializa o tema quando o módulo é carregado
 if (typeof document !== 'undefined') {
   initializeTheme()
 }
