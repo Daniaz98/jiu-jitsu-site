@@ -5,7 +5,7 @@
     <slot name="hero" />
     
     <main class="history-template__main">
-      <Container size="medium">
+      <Container size="large">
         <slot name="content" />
       </Container>
     </main>
@@ -33,7 +33,7 @@ import Container from '../atoms/Container.vue';
 
 .history-template__main {
   flex: 1;
-  padding: 4rem 0;
+  padding: 2rem 0;
 }
 
 @media (max-width: 768px) {

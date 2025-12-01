@@ -5,6 +5,9 @@ import jj1906 from '../assets/jj_1906.jpg';
 import samuraiHero from '../assets/samurai-hero-yashitzone.webp';
 import carlosGracie from '../assets/Carlos-Gracie-Action.webp';
 import helioGracie from '../assets/HelioGracie.webp';
+import kimuragracie from '../assets/brasilxjapao.webp'
+import kimuragracie2 from '../assets/helio-grace-and-masahiko-kimura.webp'
+import kimuragracie3 from '../assets/heliogracie_kimura_1951_oglobo.webp'
 
 export interface HistorySection {
   id: string;
@@ -91,6 +94,37 @@ export const historyContent: HistoryContent = {
         'Hoje, o Brazilian Jiu Jitsu é praticado em todo o mundo, com milhares de academias e milhões de praticantes. A arte marcial continua evoluindo, mantendo seus princípios fundamentais de eficiência técnica, respeito e disciplina.',
         'O BJJ não é apenas uma forma de defesa pessoal, mas também um esporte competitivo, uma filosofia de vida e uma ferramenta poderosa para o desenvolvimento físico e mental de seus praticantes.',
       ],
+    },
+    {
+      id: 'gracie-desafios',
+      title: 'Desafios Gracie',
+      paragraphs: [
+        'A família Gracie popularizou o Jiu Jitsu através de desafios, consideradas super-lutas, contra oponentes de outras artes-marciais, como Luta Livre, Judo, Boxe. Construindo os pilares do vale-tudo e predecessor do UFC.',
+        'Entre suas grandes lutas, destacou-se o confronto contra Masahiko Kimura, lendário judoca japonês, múltiplo campeão e considerado um dos maiores atletas de sua época.',
+        'A luta entre Gracie e Kimura aconteceu novamente no Estádio do Maracanã, diante de um público de 20.000 pessoas, incluindo o presidente do Brasil, Getúlio Vargas. A expectativa era tão grande que, segundo uma fonte, Kimura teria sido avisado pela embaixada japonesa de que não seria bem-vindo de volta ao Japão caso perdesse a luta.',
+        'Após uma série de golpes aplicados pelo japonês, incluindo kesa-gatame, sankaku-jime e do-jime, o brasileiro parecia incapaz de respirar sob Kimura, mas perseverou até tentar mudar de posição empurrando com o braço. Nesse momento, Kimura agarrou o membro e executou gyaku-ude-garami. Hélio não desistiu, e Kimura girou o braço até quebrá-lo. Como Gracie ainda se recusava a desistir, Masahiko torceu o braço novamente e o quebrou pela segunda vez.',
+        'Finalmente, quando o judoca estava prestes a torcer o braço pela terceira vez, o corner de Gracie jogou a toalha, e Kimura foi declarado vencedor. Uma multidão de japoneses veio e ergueu Kimura em comemoração, enquanto médicos tratavam o braço de Hélio. Como tributo à vitória de Kimura, a chave de braço que ele usou para derrotar Gracie passou a ser comumente chamada de Kimura lock, ou simplesmente Kimura, no jiu-jitsu brasileiro e, mais recentemente, no cenário de artes marciais mistas.'
+      ],
+      images: [
+        {
+          src: kimuragracie,
+          alt: 'Brasil x Japão',
+          caption: 'Pôster da super luta entre Kimura e Hélio Gracie',
+          position: 1
+        },
+        {
+          src: kimuragracie2,
+          alt: 'Kimura e Hélio cumprimentando-se',
+          caption: 'Kimura e Hélio cumprimentando-se',
+          position: 2
+        },
+        {
+          src: kimuragracie3,
+          alt: 'Kimura e Hélio durante a luta',
+          caption: 'Kimura e Hélio durante a luta',
+          position: 3
+        }
+      ]
     },
   ],
 };

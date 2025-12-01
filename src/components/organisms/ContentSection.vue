@@ -37,8 +37,8 @@ export interface HistoryImageData {
 }
 
 interface Props {
-  title: string;
-  paragraphs: string[];
+  title?: string;
+  paragraphs?: string[];
   images?: HistoryImageData[];
   animationDelay?: number;
 }

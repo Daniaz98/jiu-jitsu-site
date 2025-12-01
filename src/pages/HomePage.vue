@@ -11,7 +11,7 @@
     />
     <Footer
       description="Site dedicado ao Jiu Jitsu, conheça a história, busque sobre competições e encontre a academia mais próxima."
-      site-name="BJJ Academy"
+      site-name="BJJ Atlas"
       :quick-links="quickLinks"
       :contact-info="contactInfo"
       :social-links="socialLinks"
