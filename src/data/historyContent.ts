@@ -8,6 +8,8 @@ import helioGracie from '../assets/HelioGracie.webp';
 import kimuragracie from '../assets/brasilxjapao.webp'
 import kimuragracie2 from '../assets/helio-grace-and-masahiko-kimura.webp'
 import kimuragracie3 from '../assets/heliogracie_kimura_1951_oglobo.webp'
+import nogi from '../assets/bjj_no_gi.jpg'
+import maeda from '../assets/Mitsuyo_Maeda.jpg'
 
 export interface HistorySection {
   id: string;
@@ -69,6 +71,12 @@ export const historyContent: HistoryContent = {
           caption: 'Carlos Gracie, fundador da primeira Academia Gracie de Jiu-Jitsu',
           position: 1,
         },
+        {
+          src: maeda,
+          alt: 'Carlos Gracie em ação, um dos pioneiros do Jiu Jitsu no Brasil',
+          caption: 'Mitsuyo Maeda, o “Conde”',
+          position: 0,
+        },
       ],
     },
     {
@@ -126,5 +134,22 @@ export const historyContent: HistoryContent = {
         }
       ]
     },
+    {
+      id: 'bjj-hoje',
+      title: 'No Gi',
+      paragraphs: [
+        'O Brazilian Jiu-Jitsu vive hoje um dos momentos mais dinâmicos de sua história. Embora o tradicional treino com kimono continue sendo a base técnica da arte, a modalidade No-Gi ganhou enorme protagonismo na última década, impulsionada por competições profissionais, maior visibilidade nas redes e a entrada de novos atletas atraídos pelo formato mais rápido e físico.',
+        'O ADCC, considerado o maior evento de grappling do mundo, teve papel central nessa transformação. Sua proposta de regras voltadas para o combate real, a presença de atletas de diferentes estilos e premiações cada vez mais atraentes elevaram o nível competitivo e colocaram o No-Gi em evidência global. Como consequência, equipes tradicionais passaram a investir em treinos específicos, estratégias de leg locks, wrestling aplicado e sistemas modernos de controle.',
+        'O estado atual do BJJ, portanto, é de coexistência entre tradição e inovação: enquanto o Jiu-Jitsu com kimono permanece como fundamento técnico e cultural, o No-Gi — impulsionado pelo ADCC — vem liderando a expansão esportiva, atraindo novos praticantes e redefinindo o jogo para um cenário mais profissional, dinâmico e internacional.'
+      ],
+      images: [
+       { 
+          src: nogi,
+          alt: 'Combate No Gi',
+          caption: 'Luta de No Gi',
+          position: 1
+        }
+      ]
+    }
   ],
 };

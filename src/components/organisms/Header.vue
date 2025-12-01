@@ -26,7 +26,6 @@ let ticking = false
 const navLinks = computed(() => [
   { href: '/', label: 'Início' },
   { href: '/historia', label: 'História' },
-  { href: '/federacoes', label: 'Federações' },
   { href: '/competicoes', label: 'Competições' },
   { href: '/contato', label: 'Encontre uma Academia' }
 ])

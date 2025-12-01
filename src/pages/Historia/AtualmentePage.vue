@@ -57,9 +57,8 @@ import { historyContent } from '../../data/historyContent';
 const { footerData } = useHistoryContent();
 
 const atualmenteSections = computed(() => {
-  return historyContent.sections.filter(
-    section => section.id === 'modern-bjj'
-  );
+  const ids = ['modern-bjj', 'bjj-hoje']
+  return historyContent.sections.filter(section => ids.includes(section.id));
 });
 </script>
 

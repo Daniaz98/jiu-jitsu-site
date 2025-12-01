@@ -39,7 +39,7 @@ withDefaults(defineProps<Props>(), {
 
 .history-image__wrapper {
   width: 100%;
-  max-width: 800px;
+  max-width: 500px;
   margin: 0 auto;
   overflow: hidden;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
