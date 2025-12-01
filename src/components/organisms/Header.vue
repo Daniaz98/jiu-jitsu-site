@@ -12,12 +12,9 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
-import { useRoute } from 'vue-router'
 import Logo from '../atoms/Logo.vue'
 import Navigation from '../molecules/Navigation.vue'
 import ThemeToggle from '../atoms/ThemeToggle.vue'
-
-const route = useRoute()
 
 const navLinks = computed(() => [
   { href: '/', label: 'Início' },

@@ -2,7 +2,11 @@
   <button
     @click="toggleTheme"
     class="theme-toggle"
-    :aria-label="theme === 'dark' ? 'Alternar para modo claro' : 'Alternar para modo escuro'"
+    :aria-label="
+      theme === 'dark'
+        ? 'Alternar para modo claro'
+        : 'Alternar para modo escuro'
+    "
     type="button"
   >
     <svg
@@ -39,9 +43,9 @@
 </template>
 
 <script setup lang="ts">
-import { useTheme } from '../../hooks/useTheme'
+import { useTheme } from "../../composables/useTheme";
 
-const { theme, toggleTheme } = useTheme()
+const { theme, toggleTheme } = useTheme();
 </script>
 
 <style scoped>
@@ -74,4 +78,3 @@ const { theme, toggleTheme } = useTheme()
   transform: rotate(15deg);
 }
 </style>
-

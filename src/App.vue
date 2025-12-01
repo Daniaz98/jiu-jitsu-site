@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { useTheme } from './hooks/useTheme'
+import { useTheme } from "./composables/useTheme";
 
-useTheme()
+useTheme();
 </script>
 
 <template>
@@ -17,7 +17,8 @@ useTheme()
 
 body {
   margin: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, sans-serif;
   background-color: #ffffff;
   color: #000000;
   overflow-x: hidden;
