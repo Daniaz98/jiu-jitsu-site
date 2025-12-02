@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import HomePage from "../pages/HomePage.vue";
 import History from "../pages/Historia/HistoryPage.vue";
 import OrigemPage from "../pages/Historia/OrigemPage.vue";
+import CompeticoesPage from "../pages/Competicoes/CompeticoesPage.vue";
 
 const router = createRouter({
   history: createWebHistory(),
@@ -31,6 +32,11 @@ const router = createRouter({
       name: "atualmente",
       component: () => import("../pages/Historia/AtualmentePage.vue"),
     },
+    {
+      path:  "/competicoes",
+      name: "competicoes",
+      component: CompeticoesPage
+    }
   ],
 });
 

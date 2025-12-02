@@ -18,19 +18,6 @@
       </div>
       
       <div class="footer__section">
-        <Heading :level="4" class="footer__title">Contato</Heading>
-        <Text size="small" color="secondary" class="footer__contact">
-          {{ contactInfo?.address }}
-        </Text>
-        <Text size="small" color="secondary" class="footer__contact">
-          {{ contactInfo?.phone }}
-        </Text>
-        <Text size="small" color="secondary" class="footer__contact">
-          {{ contactInfo?.email }}
-        </Text>
-      </div>
-      
-      <div class="footer__section">
         <Heading :level="4" class="footer__title">Redes Sociais</Heading>
         <SocialLinks :links="socialLinks ?? []" />
       </div>

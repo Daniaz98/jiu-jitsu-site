@@ -13,7 +13,6 @@
       description="Site dedicado ao Jiu Jitsu, conheça a história, busque sobre competições e encontre a academia mais próxima."
       site-name="BJJ Atlas"
       :quick-links="quickLinks"
-      :contact-info="contactInfo"
       :social-links="socialLinks"
     />
   </div>
@@ -30,12 +29,6 @@ const quickLinks = [
   { href: '/horarios', label: 'Horários' },
   { href: '/faq', label: 'FAQ' }
 ]
-
-const contactInfo = {
-  address: 'Rua Exemplo, 123 - Cidade, Estado',
-  phone: '(11) 99999-9999',
-  email: 'contato@bjjacademy.com'
-}
 
 const socialLinks = [
   { href: 'https://instagram.com', label: 'Instagram', icon: 'instagram' },
