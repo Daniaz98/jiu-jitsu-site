@@ -10,6 +10,7 @@ import kimuragracie2 from '../assets/helio-grace-and-masahiko-kimura.webp'
 import kimuragracie3 from '../assets/heliogracie_kimura_1951_oglobo.webp'
 import nogi from '../assets/bjj_no_gi.jpg'
 import maeda from '../assets/Mitsuyo_Maeda.jpg'
+import kano from '../assets/jigoro kano_1.webp'
 
 export interface HistorySection {
   id: string;
@@ -28,8 +29,10 @@ export const historyContent: HistoryContent = {
       id: 'origins',
       title: 'Origens do Jiu Jitsu',
       paragraphs: [
-        'O Jiu Jitsu é uma arte-marcial de origem japonesa que se desenvolveu ao longo de séculos. Sua história remonta aos guerreiros samurais do Japão feudal, que desenvolveram técnicas de combate corpo a corpo para situações em que não podiam usar armas.',
+        'O Jiu-Jitsu é uma arte marcial de origem japonesa cuja formação se estende por vários séculos. Suas raízes remontam ao Japão feudal, quando os guerreiros samurais precisavam de técnicas de combate corpo a corpo para situações em que estavam desarmados ou com a armadura danificada. Entre os séculos XVI e XVII, especialmente durante a era Sengoku, surgiram diversas escolas (ryū) que sistematizaram métodos de imobilização, alavancas, torções e quedas, sempre priorizando o controle técnico e a eficiência sobre a força bruta.',
         'A palavra "Jiu Jitsu", originalmente "Jujutsu", significa "arte suave" em japonês, refletindo o princípio fundamental de usar a força e o peso do oponente contra ele mesmo, permitindo que um praticante menor e mais fraco possa se defender contra um oponente maior e mais forte.',
+        'Do século XVII ao XIX, durante o longo período de paz do xogunato Tokugawa (Edo), o jiu-jitsu deixou de ser apenas uma arte de guerra e passou a ser sistematizado em estilos mais formais. Cada ryu enfatizava aspectos diferentes — alguns destacavam projeções, outros luxações e técnicas de controle. Essa evolução refinou a arte, tornando-a menos letal e mais técnica, e preparando o terreno para sua transformação posterior.',
+        'Ao final do século XIX, essas escolas tradicionais serviram de base para que Jigoro Kano estudasse, selecionasse e reorganizasse os princípios que dariam origem ao judô. Ao mesmo tempo, outros praticantes levaram versões do jiu-jitsu ao exterior, especialmente ao Brasil, onde mais tarde evoluiria para o jiu-jitsu brasileiro.'
       ],
       images: [
         {
@@ -42,20 +45,20 @@ export const historyContent: HistoryContent = {
           src: earlyJiuJitsu,
           alt: 'Práticas antigas de Jiu Jitsu no Japão',
           caption: 'Práticas antigas de Jiu Jitsu no Japão na era Sengoku, século XVI',
-          position: 0,
-        },
-        {
-          src: japaneseOfficers,
-          alt: 'Oficiais japoneses do período Meiji, época em que o Jiu Jitsu se desenvolveu',
-          caption: 'Oficiais japoneses do período Meiji',
           position: 1,
         },
         {
           src: jj1906,
           alt: 'Prática de Jiu Jitsu no início do século XX, demonstrando técnicas tradicionais',
           caption: 'Prática de Jiu Jitsu no início do século XX',
-          position: 1,
+          position: 2,
         },
+        {
+          src: kano,
+          alt: 'Jigoro Kano, fundador do Judo',
+          caption: 'Jigoro Kano, criador do Judô',
+          position: 3
+        }
       ],
     },
     {
