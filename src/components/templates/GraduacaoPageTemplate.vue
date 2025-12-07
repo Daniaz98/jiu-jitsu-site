@@ -1,10 +1,10 @@
 <template>
-  <div class="competicoes-template">
+  <div class="graduacao-template">
     <slot name="header" />
     
     <slot name="hero" />
     
-    <main class="competicoes-template__main">
+    <main class="graduacao-template__main">
       <Container size="large">
         <slot name="content" />
       </Container>
@@ -19,7 +19,7 @@ import Container from '../atoms/Container.vue';
 </script>
 
 <style scoped>
-.competicoes-template {
+.graduacao-template {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -27,17 +27,17 @@ import Container from '../atoms/Container.vue';
   transition: background-color 0.3s ease;
 }
 
-.dark .competicoes-template {
+.dark .graduacao-template {
   background-color: #1a1a1a;
 }
 
-.competicoes-template__main {
+.graduacao-template__main {
   flex: 1;
   padding: 2rem 0;
 }
 
 @media (max-width: 768px) {
-  .competicoes-template__main {
+  .graduacao-template__main {
     padding: 2rem 0;
   }
 }

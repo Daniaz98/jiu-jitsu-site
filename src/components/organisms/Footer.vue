@@ -16,11 +16,6 @@
           </a>
         </nav>
       </div>
-      
-      <div class="footer__section">
-        <Heading :level="4" class="footer__title">Redes Sociais</Heading>
-        <SocialLinks :links="socialLinks ?? []" />
-      </div>
     </div>
     
     <div class="footer__bottom">
@@ -36,7 +31,6 @@ import { computed } from 'vue'
 import Logo from '../atoms/Logo.vue'
 import Heading from '../atoms/Heading.vue'
 import Text from '../atoms/Text.vue'
-import SocialLinks from '../molecules/SocialLinks.vue'
 
 defineProps<{
   description?: string
