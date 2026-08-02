@@ -1,15 +1,15 @@
 <template>
-  <div class="graduacao-template">
+  <div class="flex min-h-screen flex-col bg-surface transition-colors duration-300 dark:bg-surface-dark">
     <slot name="header" />
-    
+
     <slot name="hero" />
-    
-    <main class="graduacao-template__main">
+
+    <main class="flex-1 py-8">
       <Container size="large">
         <slot name="content" />
       </Container>
     </main>
-    
+
     <slot name="footer" />
   </div>
 </template>
@@ -17,29 +17,3 @@
 <script setup lang="ts">
 import Container from '../atoms/Container.vue';
 </script>
-
-<style scoped>
-.graduacao-template {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  background-color: #ffffff;
-  transition: background-color 0.3s ease;
-}
-
-.dark .graduacao-template {
-  background-color: #1a1a1a;
-}
-
-.graduacao-template__main {
-  flex: 1;
-  padding: 2rem 0;
-}
-
-@media (max-width: 768px) {
-  .graduacao-template__main {
-    padding: 2rem 0;
-  }
-}
-</style>
-

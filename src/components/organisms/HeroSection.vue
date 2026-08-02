@@ -1,14 +1,18 @@
 <template>
-  <section class="hero">
-    <div class="hero__overlay"></div>
-    <div class="hero__content">
-      <Heading :level="1" class="hero__title">
+  <section
+    class="relative flex min-h-screen items-center justify-center overflow-hidden bg-[linear-gradient(135deg,#ffffff_0%,#f5f5f5_100%)] transition-[background] duration-300 dark:bg-[linear-gradient(135deg,#1a1a1a_0%,#2d2d2d_100%)] before:pointer-events-none before:absolute before:inset-0 before:bg-[radial-gradient(circle_at_20%_50%,rgba(234,215,215,0.05)_0%,transparent_50%),radial-gradient(circle_at_80%_80%,rgba(211,47,47,0.05)_0%,transparent_50%)] dark:before:bg-[radial-gradient(circle_at_20%_50%,rgba(211,47,47,0.1)_0%,transparent_50%),radial-gradient(circle_at_80%_80%,rgba(211,47,47,0.1)_0%,transparent_50%)]"
+  >
+    <div
+      class="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(255,255,255,0.1)_0%,rgba(255,255,255,0.2)_100%)] transition-[background] duration-300 dark:bg-[linear-gradient(to_bottom,rgba(0,0,0,0.4)_0%,rgba(0,0,0,0.6)_100%)]"
+    />
+    <div class="relative z-[1] max-w-[800px] animate-fade-in-up p-8 text-center max-md:p-4">
+      <Heading :level="1" class="mb-6 text-shadow-sm dark:drop-shadow-[2px_2px_4px_rgba(0,0,0,0.5)]">
         {{ title }}
       </Heading>
-      <Text size="large" color="primary" class="hero__subtitle">
+      <Text size="large" color="secondary" class="mb-10 text-xl dark:text-white">
         {{ subtitle }}
       </Text>
-      <div class="hero__actions">
+      <div class="flex flex-wrap justify-center gap-4 max-md:flex-col max-md:items-stretch [&>button]:max-md:w-full">
         <Button variant="primary" size="large" @click="$emit('cta-click')">
           {{ ctaText }}
         </Button>
@@ -37,114 +41,3 @@ defineEmits<{
   'secondary-click': []
 }>()
 </script>
-
-<style scoped>
-.hero {
-  position: relative;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);
-  background-image: 
-    radial-gradient(circle at 20% 50%, rgba(234, 215, 215, 0.05) 0%, transparent 50%),
-    radial-gradient(circle at 80% 80%, rgba(211, 47, 47, 0.05) 0%, transparent 50%);
-  overflow: hidden;
-  transition: background 0.3s ease;
-}
-
-.dark .hero {
-  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
-  background-image: 
-    radial-gradient(circle at 20% 50%, rgba(211, 47, 47, 0.1) 0%, transparent 50%),
-    radial-gradient(circle at 80% 80%, rgba(211, 47, 47, 0.1) 0%, transparent 50%);
-}
-
-.hero__overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(
-    to bottom,
-    rgba(255, 255, 255, 0.1) 0%,
-    rgba(255, 255, 255, 0.2) 100%
-  );
-  transition: background 0.3s ease;
-}
-
-.dark .hero__overlay {
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0.4) 0%,
-    rgba(0, 0, 0, 0.6) 100%
-  );
-}
-
-.hero__content {
-  position: relative;
-  z-index: 1;
-  text-align: center;
-  max-width: 800px;
-  padding: 2rem;
-  animation: fadeInUp 1s ease-out;
-}
-
-.hero__title {
-  margin-bottom: 1.5rem;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-  transition: text-shadow 0.3s ease;
-}
-
-.dark .hero__title {
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-}
-
-.hero__subtitle {
-  margin-bottom: 2.5rem;
-  font-size: 1.25rem;
-}
-
-.hero__subtitle .text--primary {
-  color: #424242;
-}
-
-.dark .hero__subtitle .text--primary {
-  color: #ffffff;
-}
-
-.hero__actions {
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@media (max-width: 768px) {
-  .hero__content {
-    padding: 1rem;
-  }
-  
-  .hero__actions {
-    flex-direction: column;
-    align-items: stretch;
-  }
-  
-  .hero__actions .btn {
-    width: 100%;
-  }
-}
-</style>
-

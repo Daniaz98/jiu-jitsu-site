@@ -5,12 +5,12 @@
     </template>
 
     <template #hero>
-      <div class="history-hero">
+      <div class="bg-[linear-gradient(135deg,#ffffff_0%,#f5f5f5_100%)] py-28 text-center transition-[background] duration-300 dark:bg-[linear-gradient(135deg,#1a1a1a_0%,#2d2d2d_100%)] max-md:py-16">
         <Container size="medium">
-          <Heading :level="1" class="history-hero__title">
+          <Heading :level="1" class="mb-4 text-primary">
             História do Jiu Jitsu
           </Heading>
-          <Text size="large" color="secondary" class="history-hero__subtitle">
+          <Text size="large" color="secondary" class="mx-auto max-w-[600px]">
             Explore os principais momentos da história desta arte-marcial
             milenar
           </Text>
@@ -19,7 +19,7 @@
     </template>
 
     <template #content>
-      <div class="history-cards">
+      <div class="grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-8 py-8 max-md:grid-cols-1 max-md:gap-6 max-md:py-6">
         <HistoryCard
           v-for="card in historyCards"
           :key="card.id"
@@ -84,45 +84,3 @@ const historyCards = [
   },
 ];
 </script>
-
-<style scoped>
-.history-hero {
-  padding: 7rem 0 4rem;
-  text-align: center;
-  background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);
-  transition: background 0.3s ease;
-}
-
-.dark .history-hero {
-  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
-}
-
-.history-hero__title {
-  margin-bottom: 1rem;
-  color: #d32f2f;
-}
-
-.history-hero__subtitle {
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-.history-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  padding: 2rem 0 2rem;
-}
-
-@media (max-width: 768px) {
-  .history-hero {
-    padding: 4rem 0 3rem;
-  }
-
-  .history-cards {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-    padding: 1.5rem 0;
-  }
-}
-</style>

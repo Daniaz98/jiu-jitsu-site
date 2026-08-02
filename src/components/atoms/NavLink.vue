@@ -1,5 +1,12 @@
 <template>
-  <RouterLink :to="href" :class="['nav-link', { 'nav-link--active': isActive }]">
+  <RouterLink
+    :to="href"
+    :class="[
+      'relative px-4 py-2 rounded font-medium no-underline transition-all duration-300',
+      'text-black dark:text-white hover:text-primary hover:bg-primary/10',
+      isActive && 'text-primary after:content-[\'\'] after:absolute after:bottom-0 after:left-4 after:right-4 after:h-0.5 after:bg-primary',
+    ]"
+  >
     <slot></slot>
   </RouterLink>
 </template>
@@ -25,39 +32,3 @@ const isActive = computed(() => {
   return route.path.startsWith(props.href)
 })
 </script>
-
-<style scoped>
-.nav-link {
-  color: #000000;
-  text-decoration: none;
-  font-weight: 500;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
-  transition: all 0.3s ease;
-  position: relative;
-}
-
-.dark .nav-link {
-  color: #ffffff;
-}
-
-.nav-link:hover {
-  color: #d32f2f;
-  background-color: rgba(211, 47, 47, 0.1);
-}
-
-.nav-link--active {
-  color: #d32f2f;
-}
-
-.nav-link--active::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 1rem;
-  right: 1rem;
-  height: 2px;
-  background-color: #d32f2f;
-}
-</style>
-

@@ -1,24 +1,24 @@
 <template>
   <article
-    class="content-section"
+    class="animate-[fade-in_0.6s_ease-out_forwards] border-b border-black/10 py-8 opacity-0 last:border-b-0 dark:border-white/10 max-md:py-6"
     :style="{ animationDelay: `${animationDelay}s` }"
   >
-    <header class="content-section__header">
-      <Heading :level="2" class="content-section__title">
+    <header class="mb-6">
+      <Heading :level="2" class="relative pb-3 text-primary after:absolute after:bottom-0 after:left-0 after:h-[3px] after:w-[60px] after:bg-primary after:content-['']">
         {{ title }}
       </Heading>
     </header>
 
-    <div class="content-section__body">
+    <div class="flex flex-col gap-6">
       <template v-for="(paragraph, index) in paragraphs" :key="`paragraph-${index}`">
         <ContentParagraph :text="paragraph" />
-        <template v-for="(image) in getImagesAfterParagraph(index)" :key="`image-${index}-${imageIndex}`">
-          <HistoryImage
-            :src="image.src"
-            :alt="image.alt"
-            :caption="image.caption"
-          />
-        </template>
+        <HistoryImage
+          v-for="image in getImagesAfterParagraph(index)"
+          :key="`${image.src}-${index}`"
+          :src="image.src"
+          :alt="image.alt"
+          :caption="image.caption"
+        />
       </template>
     </div>
   </article>
@@ -36,14 +36,12 @@ export interface HistoryImageData {
   position: number;
 }
 
-interface Props {
+const props = withDefaults(defineProps<{
   title?: string;
   paragraphs?: string[];
   images?: HistoryImageData[];
   animationDelay?: number;
-}
-
-const props = withDefaults(defineProps<Props>(), {
+}>(), {
   images: () => [],
   animationDelay: 0,
 });
@@ -52,63 +50,3 @@ const getImagesAfterParagraph = (paragraphIndex: number): HistoryImageData[] => 
   return props.images?.filter(img => img.position === paragraphIndex) || [];
 };
 </script>
-
-<style scoped>
-.content-section {
-  opacity: 0;
-  animation: fadeIn 0.6s ease-out forwards;
-  padding: 2rem 0;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-}
-
-.content-section:last-child {
-  border-bottom: none;
-}
-
-.dark .content-section {
-  border-bottom-color: rgba(255, 255, 255, 0.1);
-}
-
-.content-section__header {
-  margin-bottom: 1.5rem;
-}
-
-.content-section__title {
-  color: #d32f2f;
-  position: relative;
-  padding-bottom: 0.75rem;
-}
-
-.content-section__title::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 60px;
-  height: 3px;
-  background-color: #d32f2f;
-}
-
-.content-section__body {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@media (max-width: 768px) {
-  .content-section {
-    padding: 1.5rem 0;
-  }
-}
-</style>

@@ -1,5 +1,5 @@
 <template>
-  <div class="social-links">
+  <div class="flex items-center gap-4">
     <a
       v-for="link in links"
       :key="link.href"
@@ -7,7 +7,7 @@
       :aria-label="link.label"
       target="_blank"
       rel="noopener noreferrer"
-      class="social-link"
+      class="flex h-10 w-10 items-center justify-center rounded-full bg-black/5 text-2xl text-black no-underline transition-all duration-300 hover:-translate-y-0.5 hover:bg-primary/20 hover:text-primary dark:bg-white/10 dark:text-white"
     >
       <slot :name="link.icon" :link="link">
         {{ link.label }}
@@ -21,37 +21,3 @@ defineProps<{
   links: Array<{ href: string; label: string; icon?: string }>
 }>()
 </script>
-
-<style scoped>
-.social-links {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-.social-link {
-  color: #000000;
-  font-size: 1.5rem;
-  transition: all 0.3s ease;
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background-color: rgba(0, 0, 0, 0.05);
-}
-
-.dark .social-link {
-  color: #ffffff;
-  background-color: rgba(255, 255, 255, 0.1);
-}
-
-.social-link:hover {
-  color: #d32f2f;
-  background-color: rgba(211, 47, 47, 0.2);
-  transform: translateY(-2px);
-}
-</style>
-

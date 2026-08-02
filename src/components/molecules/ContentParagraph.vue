@@ -1,8 +1,8 @@
 <template>
-  <Text 
-    :size="size" 
-    color="secondary" 
-    class="content-paragraph"
+  <Text
+    :size="size"
+    color="secondary"
+    class="mb-6 text-justify leading-[1.8] last:mb-0"
   >
     {{ text }}
   </Text>
@@ -11,24 +11,10 @@
 <script setup lang="ts">
 import Text from '../atoms/Text.vue';
 
-interface Props {
+withDefaults(defineProps<{
   text: string;
   size?: 'small' | 'medium' | 'large';
-}
-
-withDefaults(defineProps<Props>(), {
+}>(), {
   size: 'medium',
 });
 </script>
-
-<style scoped>
-.content-paragraph {
-  line-height: 1.8;
-  margin-bottom: 1.5rem;
-  text-align: justify;
-}
-
-.content-paragraph:last-child {
-  margin-bottom: 0;
-}
-</style>

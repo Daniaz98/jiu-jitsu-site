@@ -2,7 +2,11 @@
   <img
     :src="src"
     :alt="alt"
-    :class="['image', `image--${variant}`, { 'image--loading': loading }]"
+    :class="[
+      'block w-full h-full transition-opacity duration-300',
+      variantClasses[variant],
+      loading && 'opacity-50',
+    ]"
     :loading="lazyLoad ? 'lazy' : 'eager'"
     @load="handleLoad"
     @error="handleError"
@@ -12,20 +16,25 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 
-interface Props {
+withDefaults(defineProps<{
   src: string;
   alt: string;
   variant?: 'cover' | 'contain' | 'rounded' | 'circle';
   lazyLoad?: boolean;
-}
-
-withDefaults(defineProps<Props>(), {
+}>(), {
   variant: 'cover',
   lazyLoad: true,
 });
 
 const loading = ref(true);
 const emit = defineEmits(['load', 'error']);
+
+const variantClasses = {
+  cover: 'object-cover',
+  contain: 'object-contain',
+  rounded: 'object-cover rounded-lg',
+  circle: 'object-cover rounded-full',
+} as const;
 
 const handleLoad = () => {
   loading.value = false;
@@ -37,32 +46,3 @@ const handleError = () => {
   emit('error');
 };
 </script>
-
-<style scoped>
-.image {
-  display: block;
-  width: 100%;
-  height: 100%;
-  transition: opacity 0.3s ease;
-}
-
-.image--cover {
-  object-fit: cover;
-}
-
-.image--contain {
-  object-fit: contain;
-}
-
-.image--rounded {
-  border-radius: 0.5rem;
-}
-
-.image--circle {
-  border-radius: 50%;
-}
-
-.image--loading {
-  opacity: 0.5;
-}
-</style>

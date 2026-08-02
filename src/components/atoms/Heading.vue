@@ -1,5 +1,5 @@
 <template>
-  <component :is="tag" :class="['heading', `heading--${level}`]">
+  <component :is="tag" :class="[baseClasses, levelClasses[level]]">
     <slot></slot>
   </component>
 </template>
@@ -7,62 +7,23 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 
-const props = defineProps<{
+const props = withDefaults(defineProps<{
   level?: 1 | 2 | 3 | 4 | 5 | 6
-}>()
+}>(), {
+  level: 1,
+})
 
-const tag = computed(() => `h${props.level || 1}`)
+const tag = computed(() => `h${props.level}`)
+
+const baseClasses =
+  'm-0 font-bold leading-tight text-black transition-colors duration-300 dark:text-white'
+
+const levelClasses = {
+  1: 'text-[2.5rem] md:text-[3.5rem]',
+  2: 'text-[2rem] md:text-[2.5rem]',
+  3: 'text-[1.75rem] md:text-[2rem]',
+  4: 'text-2xl',
+  5: 'text-xl',
+  6: 'text-base',
+} as const
 </script>
-
-<style scoped>
-.heading {
-  margin: 0;
-  font-weight: 700;
-  line-height: 1.2;
-  color: #000000;
-  transition: color 0.3s ease;
-}
-
-.dark .heading {
-  color: #ffffff;
-}
-
-.heading--1 {
-  font-size: 3.5rem;
-}
-
-.heading--2 {
-  font-size: 2.5rem;
-}
-
-.heading--3 {
-  font-size: 2rem;
-}
-
-.heading--4 {
-  font-size: 1.5rem;
-}
-
-.heading--5 {
-  font-size: 1.25rem;
-}
-
-.heading--6 {
-  font-size: 1rem;
-}
-
-@media (max-width: 768px) {
-  .heading--1 {
-    font-size: 2.5rem;
-  }
-  
-  .heading--2 {
-    font-size: 2rem;
-  }
-  
-  .heading--3 {
-    font-size: 1.75rem;
-  }
-}
-</style>
-

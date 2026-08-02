@@ -1,18 +1,18 @@
 <template>
   <button
-    @click="toggleTheme"
-    class="theme-toggle"
+    type="button"
+    class="flex items-center justify-center rounded-lg border-2 border-current bg-transparent p-2 text-current cursor-pointer transition-all duration-300 hover:scale-110 hover:border-primary hover:bg-primary/10 group"
     :aria-label="
       theme === 'dark'
         ? 'Alternar para modo claro'
         : 'Alternar para modo escuro'
     "
-    type="button"
+    @click="toggleTheme"
   >
     <svg
       v-if="theme === 'dark'"
       xmlns="http://www.w3.org/2000/svg"
-      class="theme-toggle__icon"
+      class="h-5 w-5 transition-transform duration-300 group-hover:rotate-[15deg]"
       fill="none"
       viewBox="0 0 24 24"
       stroke="currentColor"
@@ -27,7 +27,7 @@
     <svg
       v-else
       xmlns="http://www.w3.org/2000/svg"
-      class="theme-toggle__icon"
+      class="h-5 w-5 transition-transform duration-300 group-hover:rotate-[15deg]"
       fill="none"
       viewBox="0 0 24 24"
       stroke="currentColor"
@@ -47,34 +47,3 @@ import { useTheme } from "../../composables/useTheme";
 
 const { theme, toggleTheme } = useTheme();
 </script>
-
-<style scoped>
-.theme-toggle {
-  background: transparent;
-  border: 2px solid currentColor;
-  border-radius: 8px;
-  padding: 0.5rem;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.3s ease;
-  color: currentColor;
-}
-
-.theme-toggle:hover {
-  transform: scale(1.1);
-  background-color: rgba(211, 47, 47, 0.1);
-  border-color: #d32f2f;
-}
-
-.theme-toggle__icon {
-  width: 1.25rem;
-  height: 1.25rem;
-  transition: transform 0.3s ease;
-}
-
-.theme-toggle:hover .theme-toggle__icon {
-  transform: rotate(15deg);
-}
-</style>

@@ -1,9 +1,16 @@
 <template>
-  <div class="hero-content">
-    <Heading :level="1" class="hero-content__title">
+  <div class="relative z-[1] mx-auto max-w-[800px] p-8 text-center">
+    <Heading
+      :level="1"
+      class="mb-4 !text-white text-[clamp(2rem,5vw,3.5rem)] [text-shadow:2px_2px_8px_rgba(0,0,0,0.5)] animate-[fade-in-up_0.8s_ease-out]"
+    >
       <slot name="title" />
     </Heading>
-    <Text size="large" class="hero-content__subtitle">
+    <Text
+      size="large"
+      color="white"
+      class="!text-white text-[clamp(1rem,2.5vw,1.25rem)] [text-shadow:1px_1px_4px_rgba(0,0,0,0.5)] animate-[fade-in-up_0.8s_ease-out_0.2s_both]"
+    >
       <slot name="subtitle" />
     </Text>
   </div>
@@ -13,40 +20,3 @@
 import Heading from '../atoms/Heading.vue';
 import Text from '../atoms/Text.vue';
 </script>
-
-<style scoped>
-.hero-content {
-  position: relative;
-  z-index: 1;
-  text-align: center;
-  padding: 2rem;
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.hero-content__title {
-  color: #ffffff !important;
-  font-size: clamp(2rem, 5vw, 3.5rem);
-  margin-bottom: 1rem;
-  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
-  animation: fadeInUp 0.8s ease-out;
-}
-
-.hero-content__subtitle {
-  color: #ffffff !important;
-  font-size: clamp(1rem, 2.5vw, 1.25rem);
-  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
-  animation: fadeInUp 0.8s ease-out 0.2s both;
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-</style>

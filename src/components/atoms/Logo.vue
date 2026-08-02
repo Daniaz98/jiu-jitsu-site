@@ -1,8 +1,12 @@
 <template>
-  <div class="logo" :class="`logo--${size}`">
+  <div :class="['flex items-center gap-2 font-bold text-primary no-underline leading-none', sizeClasses[size].root]">
     <slot>
-      <img :src="logo" alt="Atlas Jiu Jitsu" class="logo__img">
-      <span class="logo-text">ATLAS JIU JITSU</span>
+      <img
+        :src="logo"
+        alt="Atlas Jiu Jitsu"
+        :class="['block w-auto object-contain shrink-0 mt-[0.3rem]', sizeClasses[size].img]"
+      >
+      <span class="tracking-[2px]">ATLAS JIU JITSU</span>
     </slot>
   </div>
 </template>
@@ -13,46 +17,11 @@ import logo from '../../assets/red_pyramid.png'
 withDefaults(defineProps<{
   size?: 'sm' | 'md'
 }>(), {
-  size: 'md'
+  size: 'md',
 })
+
+const sizeClasses = {
+  sm: { root: 'text-base', img: 'h-6' },
+  md: { root: 'text-xl', img: 'h-8' },
+} as const
 </script>
-
-<style scoped>
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-weight: 700;
-  color: #d32f2f;
-  text-decoration: none;
-  line-height: 1;
-}
-
-.logo__img {
-  display: block;
-  width: auto;
-  object-fit: contain;
-  flex-shrink: 0;
-  margin-top: 0.3rem;
-}
-
-.logo--sm {
-  font-size: 1rem;
-}
-
-.logo--sm .logo__img {
-  height: 1.5rem;
-}
-
-.logo--md {
-  font-size: 1.25rem;
-}
-
-.logo--md .logo__img {
-  height: 2rem;
-}
-
-.logo-text {
-  letter-spacing: 2px;
-}
-</style>

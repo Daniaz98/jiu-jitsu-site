@@ -1,54 +1,29 @@
 <template>
-  <p :class="['text', `text--${size}`, `text--${color}`]">
+  <p :class="[baseClasses, sizeClasses[size], colorClasses[color]]">
     <slot></slot>
   </p>
 </template>
 
 <script setup lang="ts">
-defineProps<{
+withDefaults(defineProps<{
   size?: 'small' | 'medium' | 'large'
   color?: 'primary' | 'secondary' | 'white'
-}>()
+}>(), {
+  size: 'medium',
+  color: 'primary',
+})
+
+const baseClasses = 'm-0 leading-relaxed'
+
+const sizeClasses = {
+  small: 'text-sm',
+  medium: 'text-base',
+  large: 'text-lg',
+} as const
+
+const colorClasses = {
+  primary: 'text-black transition-colors duration-300 dark:text-white',
+  secondary: 'text-secondary-light transition-colors duration-300 dark:text-[#b0b0b0]',
+  white: 'text-white',
+} as const
 </script>
-
-<style scoped>
-.text {
-  margin: 0;
-  line-height: 1.6;
-}
-
-.text--small {
-  font-size: 0.875rem;
-}
-
-.text--medium {
-  font-size: 1rem;
-}
-
-.text--large {
-  font-size: 1.125rem;
-}
-
-.text--primary {
-  color: #000000;
-  transition: color 0.3s ease;
-}
-
-.dark .text--primary {
-  color: #ffffff;
-}
-
-.text--secondary {
-  color: #616161;
-  transition: color 0.3s ease;
-}
-
-.dark .text--secondary {
-  color: #b0b0b0;
-}
-
-.text--white {
-  color: #ffffff;
-}
-</style>
-

@@ -1,5 +1,4 @@
 import type { HistoryImageData } from '../components/organisms/ContentSection.vue';
-import japaneseOfficers from '../assets/japanese-general-and-officers.webp';
 import earlyJiuJitsu from '../assets/Early-Jiu-Jitsu.webp';
 import jj1906 from '../assets/jj_1906.jpg';
 import samuraiHero from '../assets/samurai-hero-yashitzone.webp';

@@ -1,5 +1,5 @@
 <template>
-  <div class="home-page">
+  <div class="flex min-h-screen flex-col">
     <Header />
     <HeroSection
       title="Jiu Jitsu"
@@ -44,12 +44,3 @@ const handleSecondaryClick = () => {
   console.log('Secondary clicked')
 }
 </script>
-
-<style scoped>
-.home-page {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-</style>
-

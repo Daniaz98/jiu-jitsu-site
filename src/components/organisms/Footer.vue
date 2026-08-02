@@ -1,24 +1,29 @@
 <template>
-  <footer class="footer">
-    <div class="footer__container">
-      <div class="footer__section">
+  <footer class="mt-0 border-t border-primary/20 bg-surface-muted pt-8 pb-4 transition-colors duration-300 dark:bg-surface-dark">
+    <div class="mx-auto grid max-w-[1200px] grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-12 px-4 max-md:grid-cols-1 max-md:gap-8">
+      <div class="flex flex-col gap-4">
         <Logo size="sm" />
-        <Text size="medium" color="secondary" class="footer__description">
+        <Text size="medium" color="secondary" class="mt-2">
           {{ description }}
         </Text>
       </div>
-      
-      <div class="footer__section">
-        <Heading :level="4" class="footer__title">Links Rápidos</Heading>
-        <nav class="footer__nav">
-          <a v-for="link in quickLinks" :key="link.href" :href="link.href" class="footer__link">
+
+      <div class="flex flex-col gap-4">
+        <Heading :level="4" class="mb-2 text-lg">Links Rápidos</Heading>
+        <nav class="flex flex-col gap-2">
+          <a
+            v-for="link in quickLinks"
+            :key="link.href"
+            :href="link.href"
+            class="text-secondary-light no-underline transition-colors duration-300 hover:text-primary dark:text-[#b0b0b0]"
+          >
             {{ link.label }}
           </a>
         </nav>
       </div>
     </div>
-    
-    <div class="footer__bottom">
+
+    <div class="mx-auto mt-8 max-w-[1200px] border-t border-black/10 px-8 pt-6 text-center transition-colors duration-300 dark:border-white/10">
       <Text size="small" color="secondary">
         &copy; {{ currentYear }} {{ siteName }}. Todos os direitos reservados.
       </Text>
@@ -46,86 +51,3 @@ defineProps<{
 
 const currentYear = computed(() => new Date().getFullYear())
 </script>
-
-<style scoped>
-.footer {
-  background-color: #f5f5f5;
-  border-top: 1px solid rgba(211, 47, 47, 0.2);
-  padding: 2rem 0 1rem;
-  margin-top: 0rem;
-  transition: background-color 0.3s ease;
-}
-
-.dark .footer {
-  background-color: #1a1a1a;
-}
-
-.footer__container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 2 1rem;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 3rem;
-}
-
-.footer__section {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.footer__title {
-  margin-bottom: 0.5rem;
-  font-size: 1.125rem;
-}
-
-.footer__description {
-  margin-top: 0.5rem;
-}
-
-.footer__nav {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.footer__link {
-  color: #616161;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.dark .footer__link {
-  color: #b0b0b0;
-}
-
-.footer__link:hover {
-  color: #d32f2f;
-}
-
-.footer__contact {
-  margin: 0.25rem 0;
-}
-
-.footer__bottom {
-  max-width: 1200px;
-  margin: 2rem auto 0;
-  padding: 1.5rem 2rem 0;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
-  text-align: center;
-  transition: border-color 0.3s ease;
-}
-
-.dark .footer__bottom {
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-@media (max-width: 768px) {
-  .footer__container {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-}
-</style>
-

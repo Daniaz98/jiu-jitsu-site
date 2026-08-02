@@ -1,18 +1,21 @@
 <template>
-  <div 
-    class="history-section" 
+  <div
+    class="animate-[fade-in-up_0.6s_ease-out_forwards] opacity-0"
     :style="{ animationDelay: `${animationDelay}s` }"
   >
-    <Heading :level="2" class="history-section__title">
+    <Heading
+      :level="2"
+      class="mb-6 border-b border-primary/30 pb-2 text-primary transition-[border-color] duration-300 dark:border-primary/50 max-md:text-[1.75rem]"
+    >
       {{ title }}
     </Heading>
-    <div class="history-section__text">
+    <div class="flex flex-col gap-6">
       <Text
         v-for="(paragraph, index) in paragraphs"
         :key="index"
         size="medium"
         color="primary"
-        class="history-section__paragraph"
+        class="text-justify leading-[1.8] max-md:text-left"
       >
         {{ paragraph }}
       </Text>
@@ -30,55 +33,3 @@ defineProps<{
   animationDelay?: number;
 }>();
 </script>
-
-<style scoped>
-.history-section {
-  opacity: 0;
-  animation: fadeInUp 0.6s ease-out forwards;
-}
-
-.history-section__title {
-  margin-bottom: 1.5rem;
-  color: #d32f2f;
-  padding-bottom: 0.5rem;
-  border-bottom: 1px solid rgba(211, 47, 47, 0.3);
-  transition: border-color 0.3s ease;
-}
-
-.dark .history-section__title {
-  border-bottom-color: rgba(211, 47, 47, 0.5);
-}
-
-.history-section__text {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
-.history-section__paragraph {
-  text-align: justify;
-  line-height: 1.8;
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@media (max-width: 768px) {
-  .history-section__title {
-    font-size: 1.75rem;
-  }
-
-  .history-section__paragraph {
-    text-align: left;
-  }
-}
-</style>
-

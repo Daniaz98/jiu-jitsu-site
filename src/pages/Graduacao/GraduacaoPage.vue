@@ -5,12 +5,12 @@
     </template>
 
     <template #hero>
-      <div class="graduacao-hero">
+      <div class="bg-[linear-gradient(135deg,#ffffff_0%,#f5f5f5_100%)] py-28 text-center transition-[background] duration-300 dark:bg-[linear-gradient(135deg,#1a1a1a_0%,#2d2d2d_100%)] max-md:py-16">
         <Container size="medium">
-          <Heading :level="1" class="graduacao-hero__title">
+          <Heading :level="1" class="mb-4 text-primary">
             {{ heroData.title }}
           </Heading>
-          <Text size="large" color="secondary" class="graduacao-hero__subtitle">
+          <Text size="large" color="secondary" class="mx-auto max-w-[600px]">
             {{ heroData.subtitle }}
           </Text>
         </Container>
@@ -18,46 +18,49 @@
     </template>
 
     <template #content>
-      <div class="graduacao-content">
+      <div class="mx-auto max-w-[1200px] py-8 max-md:p-4">
         <div
           v-for="faixa in faixas"
           :key="faixa.id"
-          class="faixa-section"
+          class="mb-16 rounded-xl bg-white p-8 shadow-[0_2px_8px_rgba(0,0,0,0.1)] transition-all duration-300 hover:shadow-[0_4px_16px_rgba(211,47,47,0.2)] dark:bg-surface-dark-muted dark:shadow-[0_2px_8px_rgba(0,0,0,0.3)] max-md:mb-8 max-md:p-6"
         >
-          <div class="faixa-section__header">
+          <div class="mb-8 flex items-center gap-4 border-b-2 border-surface-muted pb-4 dark:border-[#404040]">
             <div
-              class="faixa-section__color"
+              class="h-[60px] w-[60px] rounded-full shadow-[0_2px_8px_rgba(0,0,0,0.2)] max-md:h-[50px] max-md:w-[50px]"
               :style="{ backgroundColor: faixa.cor }"
-            ></div>
-            <Heading :level="2" class="faixa-section__title">
+            />
+            <Heading :level="2" class="m-0 text-primary">
               {{ faixa.nome }}
             </Heading>
           </div>
 
           <div
-            class="faixa-section__body"
-            :class="{ 'faixa-section__body--reverse': faixa.ordem % 2 === 0 }"
+            class="flex flex-col gap-6 md:flex-row"
+            :class="faixa.ordem % 2 === 0 ? 'md:flex-row-reverse' : ''"
           >
-            <div class="faixa-section__content">
-              <Text size="medium" class="faixa-section__historia">
+            <div class="flex flex-1 flex-col gap-6">
+              <Text size="medium" class="leading-[1.8] text-[#333] dark:text-[#e0e0e0]">
                 {{ faixa.historia }}
               </Text>
 
-              <div v-if="faixa.tempoMinimo" class="faixa-section__info">
-                <Text size="small" color="secondary" class="faixa-section__tempo">
+              <div
+                v-if="faixa.tempoMinimo"
+                class="rounded-lg border-l-4 border-primary bg-[#f9f9f9] p-4 dark:bg-surface-dark"
+              >
+                <Text size="small" color="secondary" class="m-0">
                   <strong>Tempo mínimo estimado:</strong> {{ faixa.tempoMinimo }}
                 </Text>
               </div>
 
-              <div v-if="faixa.caracteristicas.length > 0" class="faixa-section__caracteristicas">
-                <Heading :level="3" class="faixa-section__caracteristicas-title">
+              <div v-if="faixa.caracteristicas.length > 0" class="mt-4">
+                <Heading :level="3" class="mb-4 text-xl text-primary">
                   Características principais:
                 </Heading>
-                <ul class="faixa-section__lista">
+                <ul class="m-0 flex list-none flex-col gap-3 p-0">
                   <li
                     v-for="(caracteristica, index) in faixa.caracteristicas"
                     :key="index"
-                    class="faixa-section__item"
+                    class="relative pl-6 before:absolute before:left-0 before:font-bold before:text-primary before:content-['▸']"
                   >
                     <Text size="medium">{{ caracteristica }}</Text>
                   </li>
@@ -65,12 +68,12 @@
               </div>
             </div>
 
-            <div v-if="faixa.imagemSrc" class="faixa-section__image">
+            <div v-if="faixa.imagemSrc" class="flex items-center justify-center md:w-1/3">
               <img
                 :src="faixa.imagemSrc"
                 :alt="faixa.imagemAlt || faixa.nome"
-                class="faixa-image"
-              />
+                class="h-auto max-w-full rounded-lg shadow-[0_4px_12px_rgba(0,0,0,0.15)]"
+              >
             </div>
           </div>
         </div>
@@ -98,193 +101,3 @@ import { useGraduacaoContent } from "../../composables/useGraduacaoContent";
 
 const { heroData, faixas, footerData } = useGraduacaoContent();
 </script>
-
-<style scoped>
-.graduacao-hero {
-  padding: 7rem 0 4rem;
-  text-align: center;
-  background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);
-  transition: background 0.3s ease;
-}
-
-.dark .graduacao-hero {
-  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
-}
-
-.graduacao-hero__title {
-  margin-bottom: 1rem;
-  color: #d32f2f;
-}
-
-.graduacao-hero__subtitle {
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-.graduacao-content {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 2rem 0;
-}
-
-.faixa-section {
-  margin-bottom: 4rem;
-  padding: 2rem;
-  background-color: #ffffff;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
-}
-
-.dark .faixa-section {
-  background-color: #2d2d2d;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-}
-
-.faixa-section:hover {
-  box-shadow: 0 4px 16px rgba(211, 47, 47, 0.2);
-}
-
-.faixa-section__header {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  margin-bottom: 2rem;
-  padding-bottom: 1rem;
-  border-bottom: 2px solid #f5f5f5;
-}
-
-.dark .faixa-section__header {
-  border-bottom-color: #404040;
-}
-
-.faixa-section__color {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-}
-
-.faixa-section__title {
-  color: #d32f2f;
-  margin: 0;
-}
-
-.faixa-section__body {
-  display: flex;
-}
-
-.faixa-section__content {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
-.faixa-section__historia {
-  line-height: 1.8;
-  color: #333333;
-}
-
-.dark .faixa-section__historia {
-  color: #e0e0e0;
-}
-
-.faixa-section__info {
-  padding: 1rem;
-  background-color: #f9f9f9;
-  border-radius: 8px;
-  border-left: 4px solid #d32f2f;
-}
-
-.dark .faixa-section__info {
-  background-color: #1a1a1a;
-}
-
-.faixa-section__tempo {
-  margin: 0;
-}
-
-.faixa-section__caracteristicas {
-  margin-top: 1rem;
-}
-
-.faixa-section__caracteristicas-title {
-  font-size: 1.25rem;
-  margin-bottom: 1rem;
-  color: #d32f2f;
-}
-
-.faixa-section__lista {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-}
-
-.faixa-section__item {
-  padding-left: 1.5rem;
-  position: relative;
-}
-
-.faixa-section__item::before {
-  content: '▸';
-  position: absolute;
-  left: 0;
-  color: #d32f2f;
-  font-weight: bold;
-}
-
-.faixa-section__image {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.faixa-image {
-  max-width: 100%;
-  height: auto;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}
-
-@media (min-width: 768px) {
-  .faixa-section__body {
-    grid-template-columns: 2fr 1fr;
-  }
-
-  .faixa-section__body--reverse {
-    grid-template-columns: 1fr 2fr;
-  }
-
-  .faixa-section__body--reverse .faixa-section__content {
-    order: 2;
-  }
-
-  .faixa-section__body--reverse .faixa-section__image {
-    order: 1;
-  }
-}
-
-@media (max-width: 768px) {
-  .graduacao-hero {
-    padding: 4rem 0 3rem;
-  }
-
-  .graduacao-content {
-    padding: 1rem;
-  }
-
-  .faixa-section {
-    padding: 1.5rem;
-    margin-bottom: 2rem;
-  }
-
-  .faixa-section__color {
-    width: 50px;
-    height: 50px;
-  }
-}
-</style>
-

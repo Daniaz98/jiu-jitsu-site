@@ -1,57 +1,64 @@
 <template>
-  <div class="competition-card">
-    <div class="competition-card__image-wrapper">
+  <div
+    class="group flex h-full cursor-pointer flex-col overflow-hidden rounded-xl bg-white shadow-[0_4px_6px_rgba(0,0,0,0.1)] transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_12px_24px_rgba(211,47,47,0.2)] dark:bg-surface-dark-muted dark:shadow-[0_4px_6px_rgba(0,0,0,0.3)] dark:hover:shadow-[0_12px_24px_rgba(211,47,47,0.3)]"
+  >
+    <div class="relative h-[250px] w-full overflow-hidden max-md:h-[200px]">
       <Image
         :src="imageSrc"
         :alt="imageAlt"
         variant="cover"
-        class="competition-card__image"
+        class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-110"
       />
-      <div class="competition-card__overlay"></div>
-      <div class="competition-card__badge" v-if="badge">
+      <div
+        class="absolute inset-0 bg-[linear-gradient(to_bottom,transparent_0%,rgba(0,0,0,0.2)_100%)] transition-[background] duration-300 group-hover:bg-[linear-gradient(to_bottom,transparent_0%,rgba(211,47,47,0.3)_100%)]"
+      />
+      <div
+        v-if="badge"
+        class="absolute top-4 right-4 z-[2] rounded-[20px] bg-primary px-4 py-2 text-xs font-semibold uppercase tracking-[0.5px] text-white"
+      >
         {{ badge }}
       </div>
     </div>
-    
-    <div class="competition-card__content">
-      <Heading :level="3" class="competition-card__title">
+
+    <div class="flex flex-1 flex-col gap-4 p-6 max-md:gap-3 max-md:p-5">
+      <Heading :level="3" class="m-0 text-primary">
         {{ title }}
       </Heading>
-      
-      <div class="competition-card__info">
-        <div class="competition-card__info-item" v-if="date">
-          <Text size="small" color="secondary" class="competition-card__label">
+
+      <div class="flex flex-col gap-3">
+        <div v-if="date" class="flex flex-col gap-1">
+          <Text size="small" color="secondary" class="text-xs font-semibold uppercase tracking-[0.5px]">
             Data
           </Text>
-          <Text size="medium" color="primary" class="competition-card__value">
+          <Text size="medium" color="primary" class="font-medium">
             {{ date }}
           </Text>
         </div>
-        
-        <div class="competition-card__info-item" v-if="location">
-          <Text size="small" color="secondary" class="competition-card__label">
+
+        <div v-if="location" class="flex flex-col gap-1">
+          <Text size="small" color="secondary" class="text-xs font-semibold uppercase tracking-[0.5px]">
             Local
           </Text>
-          <Text size="medium" color="primary" class="competition-card__value">
+          <Text size="medium" color="primary" class="font-medium">
             {{ location }}
           </Text>
         </div>
-        
-        <div class="competition-card__info-item" v-if="type">
-          <Text size="small" color="secondary" class="competition-card__label">
+
+        <div v-if="type" class="flex flex-col gap-1">
+          <Text size="small" color="secondary" class="text-xs font-semibold uppercase tracking-[0.5px]">
             Tipo
           </Text>
-          <Text size="medium" color="primary" class="competition-card__value">
+          <Text size="medium" color="primary" class="font-medium">
             {{ type }}
           </Text>
         </div>
       </div>
-      
-      <Text size="medium" color="secondary" class="competition-card__description" v-if="description">
+
+      <Text v-if="description" size="medium" color="secondary" class="flex-1">
         {{ description }}
       </Text>
-      
-      <div class="competition-card__actions" v-if="href">
+
+      <div v-if="href" class="mt-auto pt-4">
         <Button variant="primary" size="medium" @click="handleClick">
           Ver Detalhes
         </Button>
@@ -66,7 +73,7 @@ import Heading from '../atoms/Heading.vue';
 import Text from '../atoms/Text.vue';
 import Button from '../atoms/Button.vue';
 
-interface Props {
+const props = defineProps<{
   title: string;
   imageSrc: string;
   imageAlt: string;
@@ -76,9 +83,7 @@ interface Props {
   description?: string;
   badge?: string;
   href?: string;
-}
-
-const props = defineProps<Props>();
+}>();
 
 const emit = defineEmits<{
   click: []
@@ -91,143 +96,3 @@ const handleClick = () => {
   emit('click');
 };
 </script>
-
-<style scoped>
-.competition-card {
-  display: flex;
-  flex-direction: column;
-  border-radius: 12px;
-  overflow: hidden;
-  background-color: #ffffff;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
-  cursor: pointer;
-  height: 100%;
-}
-
-.competition-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 12px 24px rgba(211, 47, 47, 0.2);
-}
-
-.dark .competition-card {
-  background-color: #2d2d2d;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-}
-
-.dark .competition-card:hover {
-  box-shadow: 0 12px 24px rgba(211, 47, 47, 0.3);
-}
-
-.competition-card__image-wrapper {
-  position: relative;
-  width: 100%;
-  height: 250px;
-  overflow: hidden;
-}
-
-.competition-card__image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.3s ease;
-}
-
-.competition-card:hover .competition-card__image {
-  transform: scale(1.1);
-}
-
-.competition-card__overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(
-    to bottom,
-    transparent 0%,
-    rgba(0, 0, 0, 0.2) 100%
-  );
-  transition: background 0.3s ease;
-}
-
-.competition-card:hover .competition-card__overlay {
-  background: linear-gradient(
-    to bottom,
-    transparent 0%,
-    rgba(211, 47, 47, 0.3) 100%
-  );
-}
-
-.competition-card__badge {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  background-color: #d32f2f;
-  color: #ffffff;
-  padding: 0.5rem 1rem;
-  border-radius: 20px;
-  font-size: 0.75rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  z-index: 2;
-}
-
-.competition-card__content {
-  padding: 1.5rem;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.competition-card__title {
-  color: #d32f2f;
-  margin: 0;
-}
-
-.competition-card__info {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-}
-
-.competition-card__info-item {
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-}
-
-.competition-card__label {
-  font-weight: 600;
-  text-transform: uppercase;
-  font-size: 0.75rem;
-  letter-spacing: 0.5px;
-}
-
-.competition-card__value {
-  font-weight: 500;
-}
-
-.competition-card__description {
-  flex: 1;
-}
-
-.competition-card__actions {
-  margin-top: auto;
-  padding-top: 1rem;
-}
-
-@media (max-width: 768px) {
-  .competition-card__image-wrapper {
-    height: 200px;
-  }
-
-  .competition-card__content {
-    padding: 1.25rem;
-    gap: 0.75rem;
-  }
-}
-</style>
-

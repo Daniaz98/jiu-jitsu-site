@@ -1,11 +1,13 @@
 <template>
-  <header 
-    class="header"
-    :class="showHeader ? 'translate-y-0' : '-translate-y-full'"
+  <header
+    :class="[
+      'fixed inset-x-0 top-0 z-[1000] border-b border-primary/20 bg-white/90 py-4 backdrop-blur-[10px] transition-[transform,background-color] duration-300 ease-in-out dark:bg-black/90',
+      showHeader ? 'translate-y-0' : '-translate-y-full',
+    ]"
   >
-    <div class="header__container">
+    <div class="mx-auto flex max-w-[1200px] items-center justify-between px-8 max-md:flex-col max-md:gap-4 max-md:px-4">
       <Logo size="md" />
-      <div class="header__right">
+      <div class="flex items-center gap-4">
         <Navigation :links="navLinks" />
         <ThemeToggle />
       </div>
@@ -61,51 +63,3 @@ onUnmounted(() => {
   window.removeEventListener('scroll', onScroll)
 })
 </script>
-
-<style scoped>
-.header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  background-color: rgba(255, 255, 255, 0.9);
-  backdrop-filter: blur(10px);
-  z-index: 1000;
-  padding: 1rem 0;
-  border-bottom: 1px solid rgba(211, 47, 47, 0.2);
-  transition: transform 0.3s ease-in-out, background-color 0.3s ease;
-  transform: translateY(0);
-}
-
-.header.-translate-y-full {
-  transform: translateY(-100%);
-}
-
-.dark .header {
-  background-color: rgba(0, 0, 0, 0.9);
-}
-
-.header__container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.header__right {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-@media (max-width: 768px) {
-  .header__container {
-    flex-direction: column;
-    gap: 1rem;
-    padding: 0 1rem;
-  }
-}
-</style>
-

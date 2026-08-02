@@ -3,22 +3,22 @@
     <template #header>
       <Header />
     </template>
-    
+
     <template #hero>
-      <div class="history-hero">
+      <div class="bg-[linear-gradient(135deg,#ffffff_0%,#f5f5f5_100%)] pt-24 pb-8 text-center transition-[background] duration-300 dark:bg-[linear-gradient(135deg,#1a1a1a_0%,#2d2d2d_100%)] max-md:py-16">
         <Container size="medium">
-          <Heading :level="1" class="history-hero__title">
+          <Heading :level="1" class="mb-4 text-primary">
             Chegada ao Brasil
           </Heading>
-          <Text size="large" color="secondary" class="history-hero__subtitle">
+          <Text size="large" color="secondary" class="mx-auto max-w-[600px]">
             Como o Jiu Jitsu chegou ao Brasil e se desenvolveu
           </Text>
         </Container>
       </div>
     </template>
-    
+
     <template #content>
-      <div class="history-sections">
+      <div class="flex flex-col gap-12 max-md:gap-8">
         <ContentSection
           v-for="(section, index) in chegadaSections"
           :key="section.id"
@@ -29,7 +29,7 @@
         />
       </div>
     </template>
-    
+
     <template #footer>
       <Footer
         description="Site dedicado ao Jiu Jitsu, conheça a história, busque sobre competições e encontre a academia mais próxima."
@@ -61,43 +61,3 @@ const chegadaSections = computed(() => {
   return historyContent.sections.filter(section => ids.includes(section.id));
 });
 </script>
-
-<style scoped>
-.history-hero {
-  padding: 6rem 0 2rem;
-  text-align: center;
-  background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);
-  transition: background 0.3s ease;
-}
-
-.dark .history-hero {
-  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
-}
-
-.history-hero__title {
-  margin-bottom: 1rem;
-  color: #d32f2f;
-}
-
-.history-hero__subtitle {
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-.history-sections {
-  display: flex;
-  flex-direction: column;
-  gap: 3rem;
-}
-
-@media (max-width: 768px) {
-  .history-hero {
-    padding: 4rem 0 3rem;
-  }
-
-  .history-sections {
-    gap: 2rem;
-  }
-}
-</style>
-
