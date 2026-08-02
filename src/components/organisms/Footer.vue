@@ -2,7 +2,7 @@
   <footer class="footer">
     <div class="footer__container">
       <div class="footer__section">
-        <Logo />
+        <Logo size="sm" />
         <Text size="medium" color="secondary" class="footer__description">
           {{ description }}
         </Text>

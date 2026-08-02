@@ -2,7 +2,7 @@
   <div class="home-page">
     <Header />
     <HeroSection
-      title="Brazilian Jiu Jitsu"
+      title="Jiu Jitsu"
       subtitle="Desenvolva sua técnica, força e disciplina. Junte-se à nossa comunidade de praticantes dedicados."
       cta-text="Comece Agora"
       secondary-text="Saiba Mais"
@@ -11,7 +11,7 @@
     />
     <Footer
       description="Site dedicado ao Jiu Jitsu, conheça a história, busque sobre competições e encontre a academia mais próxima."
-      site-name="BJJ Atlas"
+      site-name="Atlas Jiu Jitsu"
       :quick-links="quickLinks"
       :social-links="socialLinks"
     />

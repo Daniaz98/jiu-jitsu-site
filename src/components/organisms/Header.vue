@@ -4,7 +4,7 @@
     :class="showHeader ? 'translate-y-0' : '-translate-y-full'"
   >
     <div class="header__container">
-      <Logo />
+      <Logo size="md" />
       <div class="header__right">
         <Navigation :links="navLinks" />
         <ThemeToggle />
@@ -27,7 +27,8 @@ const navLinks = computed(() => [
   { href: '/', label: 'Início' },
   { href: '/historia', label: 'História' },
   { href: '/graduacao', label: 'Graduação' },
-  { href: '/contato', label: 'Encontre uma Academia' }
+  { href: '/competicoes', label: 'Competições' },
+  { href: '/busca-academia', label: 'Encontre uma Academia' }
 ])
 
 function handleScroll() {

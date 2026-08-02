@@ -74,39 +74,11 @@ export const graduacaoContent = {
       cor: '#000000',
       ordem: 5,
       historia: 'A faixa preta é o símbolo máximo de dedicação e maestria no Jiu Jitsu. Representa não apenas o conhecimento técnico, mas também a responsabilidade de preservar e transmitir a arte. Receber a faixa preta é o reconhecimento de anos de dedicação, disciplina e paixão pelo Jiu Jitsu. É o início de uma nova jornada, onde o praticante se torna um guardião da arte suave.',
-      tempoMinimo: 'Até 6 graus',
       caracteristicas: [
         'Maestria técnica completa',
         'Responsabilidade de ensino e preservação da arte',
         'Desenvolvimento contínuo através de graus (dan)',
         'Liderança e exemplo para a comunidade'
-      ]
-    },
-    {
-      id: 'coral',
-      nome: 'Faixa Coral',
-      cor: 'linear-gradient(90deg, #000000 0% 40%, #FF0000 40% 80%, #FFFFFF 80% 100%)',
-      ordem: 6,
-      historia: 'A Faixa Coral foi criada para dar reconhecimento aos mestres que dedicaram décadas ao ensino e à preservação da arte, mas que ainda não atingiam os requisitos históricos para a faixa vermelha. Ela simboliza autoridade, experiência, legado e contribuição.',
-      tempoMinimo: '31 anos de faixa preta e 7 anos no 7º grau',
-      caracteristicas: [
-        'São faixas reservadas para mestres com décadas de prática e ensino',
-        'Representam profundo conhecimento técnico, histórico e filosófico.',
-        'Mestres coral geralmente são responsáveis por formar muitos faixas pretas e liderar grandes escolas.',
-        'Envolvem papel de liderança, não apenas habilidade técnica.'
-      ]
-    },
-    {
-      id: 'vermelha',
-      nome: 'Faixa Vermelha',
-      cor: '#FF2C2C',
-      ordem: 6,
-      historia: 'A Faixa Vermelha é o “ápice” do Jiu-Jitsu. Ela representa o nível máximo de maestria. A Faixa Vermelha foi criada para homenagear os grandes mestres que preservaram e formaram a arte.',
-      tempoMinimo: '10 anos no 8° grau.',
-      caracteristicas: [
-        'Simboliza sabedoria, tradição e legado máximo',
-        'Mestres faixa vermelha geralmente formaram diversas gerações de professores e mestres',
-        'Foco muito maior em ensino, filosofia e história do que em competição'
       ]
     }
   ] as Faixa[],
