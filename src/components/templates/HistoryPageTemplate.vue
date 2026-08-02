@@ -7,6 +7,7 @@
     <main class="flex-1 py-8">
       <Container size="large">
         <slot name="content" />
+        <slot name="nav" />
       </Container>
     </main>
 

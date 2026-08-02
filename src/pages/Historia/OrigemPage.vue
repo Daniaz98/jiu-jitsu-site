@@ -28,6 +28,10 @@
       </div>
     </template>
 
+    <template #nav>
+      <HistoryNav />
+    </template>
+
     <template #footer>
       <Footer
         description="Site dedicado ao Jiu Jitsu, conheça a história, busque sobre competições e encontre a academia mais próxima."
@@ -45,6 +49,7 @@ import HistoryPageTemplate from '../../components/templates/HistoryPageTemplate.
 import Header from '../../components/organisms/Header.vue';
 import Footer from '../../components/organisms/Footer.vue';
 import ContentSection from '../../components/organisms/ContentSection.vue';
+import HistoryNav from '../../components/molecules/HistoryNav.vue';
 import Container from '../../components/atoms/Container.vue';
 import Heading from '../../components/atoms/Heading.vue';
 import Text from '../../components/atoms/Text.vue';

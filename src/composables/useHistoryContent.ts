@@ -9,6 +9,7 @@ export function useHistoryContent() {
 
   const historySections = computed(() => historyContent.sections);
 
+
   const footerData = computed(() => ({
     quickLinks: [
       { href: '/historia', label: 'História' },
@@ -34,3 +35,9 @@ export function useHistoryContent() {
     footerData,
   };
 }
+
+export const historyPages = [
+  {path: '/historia/origem', title: 'Origem'},
+  {path: '/historia/chegada-ao-brasil', title: 'Chegada ao Brasil'},
+  {path: '/historia/atualmente', title: 'Atualmente'},
+] as const
