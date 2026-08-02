@@ -9,18 +9,8 @@ export function useGraduacaoContent() {
 
   const faixas = computed(() => graduacaoContent.faixas);
 
-  const footerData = computed(() => ({
-    quickLinks: [
-      { href: '/', label: "Início"},
-      { href: '/historia', label: 'História' },
-      { href: '/graduacao', label: 'Graduação' },
-    ],
-  }));
-
   return {
     heroData,
     faixas,
-    footerData,
   };
 }
-

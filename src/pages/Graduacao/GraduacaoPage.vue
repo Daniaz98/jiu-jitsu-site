@@ -81,11 +81,7 @@
     </template>
 
     <template #footer>
-      <Footer
-        description="Site dedicado ao Jiu Jitsu, conheça a história, busque sobre graduação e encontre a academia mais próxima."
-        site-name="BJJ Atlas"
-        :quick-links="footerData.quickLinks"
-      />
+      <Footer />
     </template>
   </GraduacaoPageTemplate>
 </template>
@@ -99,5 +95,5 @@ import Heading from "../../components/atoms/Heading.vue";
 import Text from "../../components/atoms/Text.vue";
 import { useGraduacaoContent } from "../../composables/useGraduacaoContent";
 
-const { heroData, faixas, footerData } = useGraduacaoContent();
+const { heroData, faixas } = useGraduacaoContent();
 </script>

@@ -33,13 +33,7 @@
     </template>
 
     <template #footer>
-      <Footer
-        description="Site dedicado ao Jiu Jitsu, conheça a história, busque sobre competições e encontre a academia mais próxima."
-        site-name="BJJ Academy"
-        :quick-links="footerData.quickLinks"
-        :contact-info="footerData.contactInfo"
-        :social-links="footerData.socialLinks"
-      />
+      <Footer />
     </template>
   </HistoryPageTemplate>
 </template>
@@ -53,11 +47,8 @@ import HistoryNav from '../../components/molecules/HistoryNav.vue';
 import Container from '../../components/atoms/Container.vue';
 import Heading from '../../components/atoms/Heading.vue';
 import Text from '../../components/atoms/Text.vue';
-import { useHistoryContent } from '../../composables/useHistoryContent';
 import { computed } from 'vue';
 import { historyContent } from '../../data/historyContent';
-
-const { footerData } = useHistoryContent();
 
 const origemSection = computed(() => {
   return historyContent.sections.find(section => section.id === 'origins') || {

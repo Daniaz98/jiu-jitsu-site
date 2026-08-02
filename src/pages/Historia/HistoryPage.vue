@@ -32,13 +32,7 @@
     </template>
 
     <template #footer>
-      <Footer
-        description="Site dedicado ao Jiu Jitsu, conheça a história, busque sobre competições e encontre a academia mais próxima."
-        site-name="BJJ Academy"
-        :quick-links="footerData.quickLinks"
-        :contact-info="footerData.contactInfo"
-        :social-links="footerData.socialLinks"
-      />
+      <Footer />
     </template>
   </HistoryPageTemplate>
 </template>
@@ -51,12 +45,9 @@ import HistoryCard from "../../components/molecules/HistoryCard.vue";
 import Container from "../../components/atoms/Container.vue";
 import Heading from "../../components/atoms/Heading.vue";
 import Text from "../../components/atoms/Text.vue";
-import { useHistoryContent } from "../../composables/useHistoryContent";
 import samuraiHero from "../../assets/samurai-hero-yashitzone.webp";
 import carlosGracie from "../../assets/Carlos-Gracie-Action.webp";
 import nogi from "../../assets/bjj_no_gi.jpg";
-
-const { footerData } = useHistoryContent();
 
 const historyCards = [
   {
